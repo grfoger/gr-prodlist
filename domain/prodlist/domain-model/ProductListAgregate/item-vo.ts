@@ -1,5 +1,7 @@
 class Item {
   name: string;
 
-  status: boolean;
+  isComplete: boolean;
+
+  color: string;
 }

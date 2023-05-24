@@ -36,3 +36,6 @@ TEST-RESULTS*.xml
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+#other
+yarn.lock

@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 
-export class ProductList {
+export class CompleteList {
   private id: Types.ObjectId;
 
   private list: Array<Item>;
