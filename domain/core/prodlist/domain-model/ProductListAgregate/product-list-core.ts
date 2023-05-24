@@ -9,4 +9,6 @@ export class ProductList {
     this.id = id;
     this.list = list;
   }
+
+
 }
