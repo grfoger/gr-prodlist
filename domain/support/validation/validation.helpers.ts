@@ -1,13 +1,5 @@
-export interface IEnsureParamObject<T> {
-  [key: string]: T;
-}
+import { IllegalArgumentError } from "@/support/errors/errors";
 
-export type EnsureCheck<T> = (paramObject: IEnsureParamObject<T>) => T;
-
-export function getParamNameAndValue<T>(paramObject: { [key: string]: T }): {
-  name: string;
-  value: T;
-} {
-  const [paramKey, paramValue] = Object.entries(paramObject)[0];
-  return { name: paramKey, value: paramValue as T };
+export function validateSome<T>(obj: T) {
+  if (!obj) throw IllegalArgumentError;
 }
