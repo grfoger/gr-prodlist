@@ -1,4 +1,5 @@
 import { Types } from "mongoose";
+import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item-vo";
 
 export class ProductList {
   private id: Types.ObjectId;
