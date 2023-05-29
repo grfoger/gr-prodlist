@@ -1,6 +1,9 @@
 import { Types } from "mongoose";
 import { IllegalArgumentError } from "@/support/errors/errors";
-import {validateIsEnum, validateNotNullOrEmptyString} from "@/support/validation/validation.helpers";
+import {
+  validateIsEnum,
+  validateNotNullOrEmptyString,
+} from "@/support/validation/validation.helpers";
 
 export class Item {
   readonly id: Types.ObjectId;
@@ -23,6 +26,7 @@ export class Item {
     this.color = color;
   }
 
+  //TODO убрать создание id в домайн модели
   static getNew(name: string, color?: string) {
     validateNotNullOrEmptyString(name);
     color = !!color ? color : Color.WHITE;

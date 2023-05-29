@@ -5,10 +5,11 @@ export function validateExample<T>(obj: T) {
   if (!obj) throw ValidationError;
 }
 
-export function validateObjectId(obj: Types.ObjectId | string) {
+export function validateObjectId(obj: Types.ObjectId) {
   validateNotNull(obj);
   if (!isObjectIdOrHexString(obj))
     throw new ValidationError("value is not ObjectId");
+  return obj;
 }
 
 export function validateNotNull(obj) {

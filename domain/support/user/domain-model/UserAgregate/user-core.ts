@@ -1,13 +1,12 @@
 import { Types } from "mongoose";
-import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item-vo";
 
-export class ProductList {
+export class User {
   private id: Types.ObjectId;
 
-  private list: Array<Item>;
+  private name: string;
 
-  private constructor(id: Types.ObjectId, list: Array<Item>) {
+  private constructor(id: Types.ObjectId, name: string) {
     this.id = id;
-    this.list = list;
+    this.name = name;
   }
 }
