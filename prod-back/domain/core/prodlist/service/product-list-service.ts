@@ -13,8 +13,8 @@ export class ProductListService {
   addItem(item: CreateItemRequestDto) {
     // переписать на синглтон или на список конкретного пользователя
     const productList = new ProductList(
-      new Types.ObjectId(),
-      new Map<Types.ObjectId, Item>(),
+      new Types.ObjectId().toString(),
+      new Map<string, Item>(),
       []
     );
     productList.addTask(item.name);

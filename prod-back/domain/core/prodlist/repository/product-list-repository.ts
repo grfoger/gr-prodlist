@@ -5,11 +5,11 @@ import { IllegalArgumentError } from "@/support/errors/errors";
 
 @Injectable()
 export class ProductListRepository {
-  private store: Map<Types.ObjectId, ProductList> = new Map();
+  private store: Map<string, ProductList> = new Map();
 
   public save(prodList: ProductList) {
     prodList = new ProductList(
-      new Types.ObjectId(),
+      new Types.ObjectId().toString(),
       prodList.list,
       prodList.completeList
     );

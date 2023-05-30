@@ -15,7 +15,6 @@ module.exports = {
   rules: {
     // 'max-len': [1, { code: 100 }],
     '@typescript-eslint/lines-between-class-members': 'error',
-    '@typescript-eslint/lines-between-class-members': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
       {
