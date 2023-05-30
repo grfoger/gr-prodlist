@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["*"],
       "@prodlist/*": ["prodlist/*"],
-      "@user/*": ["user/*"],
+      "@user/*": ["user/*"]
     }
   }
 }
