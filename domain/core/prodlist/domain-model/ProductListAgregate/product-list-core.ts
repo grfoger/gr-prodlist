@@ -1,38 +1,31 @@
-import { Types } from "mongoose";
 import {
   Color,
   Item,
-} from "@/core/prodlist/domain-model/ProductListAgregate/item-vo";
+} from "@/core/prodlist/domain-model/ProductListAgregate/item";
 import {
   validateIsEnum,
   validateNotNullOrEmptyString,
-  validateObjectId,
 } from "@/support/validation/validation.helpers";
 
 export class ProductList {
-  private readonly _id: Types.ObjectId;
+  private readonly _id: string;
 
-  private _list: Map<Types.ObjectId, Item>;
+  private _list: Map<string, Item>;
 
   private _completeList: Array<Item>;
 
-  constructor(
-    id: Types.ObjectId,
-    list: Map<Types.ObjectId, Item>,
-    completeList: Array<Item>
-  ) {
-    this._id = validateObjectId(id);
+  constructor(id: string, list: Map<string, Item>, completeList: Array<Item>) {
+    this._id = id;
     //TODO: дописать валидацию на мап и массив
-    //TODO: удалить в доменной модели привязку к id mongo
     this._list = list;
     this._completeList = completeList;
   }
 
-  get id(): Types.ObjectId {
+  get id(): string {
     return this._id;
   }
 
-  get list(): Map<Types.ObjectId, Item> {
+  get list(): Map<string, Item> {
     return this._list;
   }
 
@@ -48,8 +41,7 @@ export class ProductList {
     return item.id;
   }
 
-  public changeNameTask(id: Types.ObjectId, newName: string) {
-    validateObjectId(id);
+  public changeNameTask(id: string, newName: string) {
     validateNotNullOrEmptyString(newName);
 
     const item = this._list.get(id);
@@ -57,8 +49,7 @@ export class ProductList {
     this._list.set(id, item);
   }
 
-  public changeColorTask(id: Types.ObjectId, newColor: Color) {
-    validateObjectId(id);
+  public changeColorTask(id: string, newColor: Color) {
     validateIsEnum(Color, newColor);
 
     const item = this._list.get(id);
@@ -66,16 +57,12 @@ export class ProductList {
     this._list.set(id, item);
   }
 
-  public deleteTask(id: Types.ObjectId) {
-    validateObjectId(id);
-
+  public deleteTask(id: string) {
     if (!this._list.has(id)) throw new Error("Can't delete! Task not exists.");
     this._list.delete(id);
   }
 
-  public completeTask(id: Types.ObjectId) {
-    validateObjectId(id);
-
+  public completeTask(id: string) {
     const item = this._list.get(id);
     this._list.delete(id);
     item.setCompleteStatus();

@@ -11,6 +11,7 @@
   "dependencies": {
     "@nestjs/cli": "^9.5.0",
     "@nestjs/common": "^9.4.2",
+    "class-validator": "^0.14.0",
     "eslint": "8.2.0",
     "mongoose": "^7.2.0",
     "ts-node": "^10.9.1",

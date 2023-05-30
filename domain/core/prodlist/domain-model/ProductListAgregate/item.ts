@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import { IllegalArgumentError } from "@/support/errors/errors";
 import {
   validateIsEnum,
@@ -6,7 +5,7 @@ import {
 } from "@/support/validation/validation.helpers";
 
 export class Item {
-  readonly id: Types.ObjectId;
+  readonly id: string;
 
   private name: string;
 
@@ -15,7 +14,7 @@ export class Item {
   private color: string;
 
   private constructor(
-    id: Types.ObjectId,
+    id: string,
     name: string,
     isComplete: boolean,
     color: string
@@ -30,7 +29,7 @@ export class Item {
   static getNew(name: string, color?: string) {
     validateNotNullOrEmptyString(name);
     color = !!color ? color : Color.WHITE;
-    return new Item(new Types.ObjectId(), name, false, color);
+    return new Item("здесь не должно быть id", name, false, color);
   }
 
   setCompleteStatus() {

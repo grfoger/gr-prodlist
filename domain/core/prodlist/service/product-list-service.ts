@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { ProductList } from "@/core/prodlist/domain-model/ProductListAgregate/product-list-core";
 import { Types } from "mongoose";
-import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item-vo";
+import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item";
 import { CreateItemRequestDto } from "@/core/prodlist/domain-model/dto/create-item-request-dto";
 
 @Injectable()
