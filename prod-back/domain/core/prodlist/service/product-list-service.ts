@@ -3,20 +3,17 @@ import { ProductList } from "@/core/prodlist/domain-model/ProductListAgregate/pr
 import { Types } from "mongoose";
 import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item";
 import { CreateItemRequestDto } from "@/core/prodlist/domain-model/dto/create-item-request-dto";
+import { ProductListRepository } from "@/core/prodlist/repository/product-list-repository";
 
 @Injectable()
 export class ProductListService {
-  getList() {
-    return [];
+  constructor(private readonly productListRepository: ProductListRepository) {}
+
+  getList(id) {
+    return this.productListRepository.getById(id).getResponse();
   }
 
-  addItem(item: CreateItemRequestDto) {
-    // переписать на синглтон или на список конкретного пользователя
-    const productList = new ProductList(
-      new Types.ObjectId().toString(),
-      new Map<string, Item>(),
-      []
-    );
-    productList.addTask(item.name);
+  addItem(id, item: CreateItemRequestDto) {
+    this.productListRepository.saveTask(id, item);
   }
 }

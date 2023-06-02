@@ -72,4 +72,11 @@ export class ProductList {
   public clearCompleteList() {
     this._completeList = [];
   }
+
+  public getResponse() {
+    const list: Array<Item> = Array.from<Item>(this.list.values());
+    const complete = this.completeList;
+    const id = this.id;
+    return { id, list, complete };
+  }
 }

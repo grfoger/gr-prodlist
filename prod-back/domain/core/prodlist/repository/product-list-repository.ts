@@ -2,19 +2,20 @@ import { Injectable } from "@nestjs/common";
 import { Types } from "mongoose";
 import { ProductList } from "@/core/prodlist/domain-model/ProductListAgregate/product-list-core";
 import { IllegalArgumentError } from "@/support/errors/errors";
+import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item";
 
 @Injectable()
 export class ProductListRepository {
   private store: Map<string, ProductList> = new Map();
 
-  public save(prodList: ProductList) {
-    prodList = new ProductList(
-      new Types.ObjectId().toString(),
-      prodList.list,
-      prodList.completeList
-    );
-    this.store.set(prodList.id, prodList);
-    return prodList;
+  public saveTask(id, item) {
+    let prodlist = this.store.get(id);
+    if (!prodlist) {
+      const newId = new Types.ObjectId().toString();
+      prodlist = new ProductList(newId, new Map<string, Item>(), []);
+      this.store.set(newId, prodlist);
+    }
+    prodlist.addTask(item.name);
   }
 
   public getById(id) {
