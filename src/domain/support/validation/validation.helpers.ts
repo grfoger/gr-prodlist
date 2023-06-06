@@ -1,5 +1,5 @@
-import { ValidationError } from "@/support/errors/errors";
 import { isObjectIdOrHexString, Types } from "mongoose";
+import { ValidationError } from "@support/errors/errors";
 
 export function validateExample<T>(obj: T) {
   if (!obj) throw ValidationError;

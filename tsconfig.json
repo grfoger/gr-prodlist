@@ -17,11 +17,21 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
-    "baseUrl": "./domain",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"],
-      "@prodlist/*": ["prodlist/*"],
-      "@user/*": ["user/*"]
-    }
+      "@/*": [
+        "*"
+      ],
+      "@core/*": ["domain/core/*"],
+      "@support/*": ["domain/support/*"],
+      "@tool/*": ["domain/tool/*"]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   }
 }
+

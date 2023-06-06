@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { ProductListService } from "@/core/prodlist/service/product-list-service";
-import { CreateItemRequestDto } from "@/core/prodlist/domain-model/dto/create-item-request-dto";
+import { ProductListService } from "../service/product-list-service";
+import { CreateItemRequestDto } from "@core/prodlist/domain-model/dto/create-item-request-dto";
 
 @Controller("prodlist")
 export class ProductListController {

@@ -3,9 +3,16 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
     sourceType: 'module',
+    extraFileExtensions:['.vue']
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'deprecation'],
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'deprecation', 'eslint-plugin-vue'],
+  extends: [
+      'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    '@nuxtjs/eslint-config-typescript',
+    'plugin:nuxt/recommended',
+    'prettier',
+  ],
   root: true,
   env: {
     node: true,
@@ -14,6 +21,7 @@ module.exports = {
   ignorePatterns: ['.eslintrc.js'],
   rules: {
     // 'max-len': [1, { code: 100 }],
+    '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/lines-between-class-members': 'error',
     '@typescript-eslint/naming-convention': [
       'error',

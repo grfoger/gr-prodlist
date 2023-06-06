@@ -1,8 +1,8 @@
-import { IllegalArgumentError } from "@/support/errors/errors";
 import {
   validateIsEnum,
   validateNotNullOrEmptyString,
-} from "@/support/validation/validation.helpers";
+} from "@support/validation/validation.helpers";
+import { IllegalArgumentError } from "@support/errors/errors";
 
 export class Item {
   readonly id: string;

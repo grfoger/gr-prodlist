@@ -1,11 +1,11 @@
 import {
   Color,
   Item,
-} from "@/core/prodlist/domain-model/ProductListAgregate/item";
+} from "@core/prodlist/domain-model/ProductListAgregate/item";
 import {
   validateIsEnum,
   validateNotNullOrEmptyString,
-} from "@/support/validation/validation.helpers";
+} from "@support/validation/validation.helpers";
 
 export class ProductList {
   private readonly _id: string;

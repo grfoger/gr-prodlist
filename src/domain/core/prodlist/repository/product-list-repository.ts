@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { Types } from "mongoose";
-import { ProductList } from "@/core/prodlist/domain-model/ProductListAgregate/product-list-core";
-import { IllegalArgumentError } from "@/support/errors/errors";
-import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item";
+import { ProductList } from "@core/prodlist/domain-model/ProductListAgregate/product-list-core";
+import { Item } from "@core/prodlist/domain-model/ProductListAgregate/item";
+import { IllegalArgumentError } from "@support/errors/errors";
 
 @Injectable()
 export class ProductListRepository {
