@@ -1,0 +1,4 @@
+kill port:
+netstat -ano
+#find PID ###
+taskkill /PID ### /F

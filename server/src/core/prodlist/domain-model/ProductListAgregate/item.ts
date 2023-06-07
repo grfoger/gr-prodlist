@@ -1,8 +1,8 @@
-import { IllegalArgumentError } from "@/support/errors/errors";
+import { IllegalArgumentError } from '@/support/errors/errors';
 import {
   validateIsEnum,
   validateNotNullOrEmptyString,
-} from "@/support/validation/validation.helpers";
+} from '@/support/validation/validation.helpers';
 
 export class Item {
   readonly id: string;
@@ -17,7 +17,7 @@ export class Item {
     id: string,
     name: string,
     isComplete: boolean,
-    color: string
+    color: string,
   ) {
     this.id = id;
     this.name = name;
@@ -29,13 +29,13 @@ export class Item {
   static getNew(name: string, color?: string) {
     validateNotNullOrEmptyString(name);
     color = !!color ? color : Color.WHITE;
-    return new Item("здесь не должно быть id", name, false, color);
+    return new Item('здесь не должно быть id', name, false, color);
   }
 
   setCompleteStatus() {
     if (this.isComplete)
       throw new IllegalArgumentError(
-        `status of item ${this.id} is already complete`
+        `status of item ${this.id} is already complete`,
       );
     this.isComplete = true;
   }
@@ -52,10 +52,10 @@ export class Item {
 }
 
 export enum Color {
-  WHITE = "white",
-  ORANGE = "orange",
-  BLUE = "blue",
-  GREEN = "green",
-  RED = "red",
-  YELLOW = "yellow",
+  WHITE = 'white',
+  ORANGE = 'orange',
+  BLUE = 'blue',
+  GREEN = 'green',
+  RED = 'red',
+  YELLOW = 'yellow',
 }

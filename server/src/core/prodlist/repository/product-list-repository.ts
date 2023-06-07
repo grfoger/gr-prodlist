@@ -1,8 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { Types } from "mongoose";
-import { ProductList } from "@/core/prodlist/domain-model/ProductListAgregate/product-list-core";
-import { IllegalArgumentError } from "@/support/errors/errors";
-import { Item } from "@/core/prodlist/domain-model/ProductListAgregate/item";
+import { Injectable } from '@nestjs/common';
+
+import { ProductList } from '@/core/prodlist/domain-model/ProductListAgregate/product-list-core';
+import { IllegalArgumentError } from '@/support/errors/errors';
+import { Item } from '@/core/prodlist/domain-model/ProductListAgregate/item';
+import { Types } from 'mongoose';
 
 @Injectable()
 export class ProductListRepository {
@@ -24,7 +25,7 @@ export class ProductListRepository {
 
   public update(id, prodList: ProductList) {
     if (!this.getById(id))
-      throw new IllegalArgumentError("list not exist for update");
+      throw new IllegalArgumentError('list not exist for update');
     this.store.set(id, prodList);
     return prodList;
   }
